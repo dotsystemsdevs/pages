@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dotsystems | Build · Ship · Share</title>
+    <title>dotsystems</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -17,253 +15,174 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #0a0a12;
-            color: #fff;
+            background: #08080f;
+            color: #e0e0e8;
             padding: 20px;
         }
 
         .container {
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
+        }
+
+        /* --- Header --- */
+        .header {
             text-align: center;
+            margin-bottom: 32px;
         }
 
-        .logo {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            background: #10102a;
-            margin: 0 auto 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid #1a1a3a;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            width: 48px;
-            height: 28px;
-            background: #4466ff;
-            border-radius: 14px 14px 4px 4px;
-            box-shadow:
-                0 0 20px rgba(68, 102, 255, 0.3),
-                inset 0 -4px 0 rgba(0, 0, 0, 0.15);
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            top: 36px;
-            left: 38px;
-        }
-
-        .pixel-cloud {
-            font-size: 44px;
+        .pixel-logo {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 11px;
+            color: #4466ff;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: inline-block;
+            padding: 10px 16px;
+            border: 2px solid #1a1a30;
+            background: #0c0c18;
             image-rendering: pixelated;
         }
 
         .name {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
-        }
-
-        .name span {
-            color: #4466ff;
-        }
-
-        .tagline {
-            font-size: 14px;
-            color: #6a6a8a;
-            margin-bottom: 6px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .subtitle {
-            font-size: 13px;
-            color: #444;
-            margin-bottom: 28px;
-        }
-
-        .section-label {
-            font-size: 10px;
+            font-size: 20px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #4466ff;
-            margin-bottom: 10px;
-            text-align: left;
-            padding-left: 4px;
+            color: #fff;
+            margin-bottom: 2px;
         }
 
+        .bio {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* --- Links --- */
         .links {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 24px;
+            gap: 8px;
         }
 
-        .link-card {
+        a.link {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 14px 18px;
-            background: #0f0f1e;
-            border: 1px solid #1a1a30;
-            border-radius: 12px;
+            gap: 12px;
+            padding: 12px 16px;
+            background: #0c0c16;
+            border: 1px solid #181828;
+            border-radius: 8px;
             text-decoration: none;
-            color: #fff;
-            transition: all 0.2s ease;
+            color: #e0e0e8;
+            transition: border-color 0.15s, background 0.15s;
         }
 
-        .link-card:hover {
-            background: #141428;
+        a.link:hover {
+            background: #10101e;
             border-color: #4466ff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(68, 102, 255, 0.1);
         }
 
-        .link-card:active {
-            transform: translateY(0);
-        }
-
-        .link-icon {
-            font-size: 22px;
+        .link-emoji {
+            font-size: 20px;
+            width: 32px;
+            text-align: center;
             flex-shrink: 0;
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #0a0a18;
-            border-radius: 10px;
-            border: 1px solid #1a1a30;
         }
 
-        .link-text {
-            text-align: left;
-        }
-
-        .link-title {
+        .link-label {
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
-        .link-desc {
+        .link-sub {
             font-size: 11px;
-            color: #555;
+            color: #444;
             margin-top: 1px;
         }
 
-        .link-arrow {
+        .link-go {
             margin-left: auto;
-            color: #333;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .footer {
-            margin-top: 32px;
-            font-size: 11px;
+            font-size: 14px;
             color: #2a2a40;
         }
 
-        .footer a {
-            color: #3a3a55;
-            text-decoration: none;
+        /* --- Divider --- */
+        .divider {
+            height: 1px;
+            background: #141420;
+            margin: 16px 0;
         }
 
-        .footer a:hover {
-            color: #4466ff;
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            margin-top: 28px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 7px;
+            color: #222;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <span class="pixel-cloud">☁️</span>
+        <div class="header">
+            <div class="pixel-logo">dotsystems</div>
+            <div class="name">Dot</div>
+            <div class="bio">App developer from Sweden</div>
         </div>
-        <div class="name"><span>dot</span>systems</div>
-        <div class="tagline">Build · Ship · Share</div>
-        <div class="subtitle">Indie apps, built with vibes</div>
 
-        <div class="section-label">Apps</div>
         <div class="links">
-            <a href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" class="link-card" target="_blank" rel="noopener">
-                <div class="link-icon">🦥</div>
-                <div class="link-text">
-                    <div class="link-title">Slothy</div>
-                    <div class="link-desc">Todo app for procrastinators</div>
+            <a href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" class="link" target="_blank" rel="noopener">
+                <span class="link-emoji">🦥</span>
+                <div>
+                    <div class="link-label">Slothy</div>
+                    <div class="link-sub">Todo app for procrastinators</div>
                 </div>
-                <div class="link-arrow">›</div>
+                <span class="link-go">›</span>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" class="link-card" target="_blank" rel="noopener">
-                <div class="link-icon">⛳</div>
-                <div class="link-text">
-                    <div class="link-title">Mulligan</div>
-                    <div class="link-desc">Golf ball tracker + round logging</div>
+            <a href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" class="link" target="_blank" rel="noopener">
+                <span class="link-emoji">⛳</span>
+                <div>
+                    <div class="link-label">Mulligan</div>
+                    <div class="link-sub">Golf scorecard & ball tracker</div>
                 </div>
-                <div class="link-arrow">›</div>
+                <span class="link-go">›</span>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.diana.lotty" class="link-card" target="_blank" rel="noopener">
-                <div class="link-icon">🎰</div>
-                <div class="link-text">
-                    <div class="link-title">Lotty</div>
-                    <div class="link-desc">Lottery profit & loss tracker</div>
+            <a href="https://play.google.com/store/apps/details?id=com.diana.lotty" class="link" target="_blank" rel="noopener">
+                <span class="link-emoji">🎰</span>
+                <div>
+                    <div class="link-label">Lotty</div>
+                    <div class="link-sub">Lottery profit & loss tracker</div>
                 </div>
-                <div class="link-arrow">›</div>
+                <span class="link-go">›</span>
             </a>
         </div>
 
-        <div class="section-label">Open Source</div>
+        <div class="divider"></div>
+
         <div class="links">
-            <a href="https://github.com/dotsystemsdevs/vibecoders-toolkit" class="link-card" target="_blank" rel="noopener">
-                <div class="link-icon">🛠️</div>
-                <div class="link-text">
-                    <div class="link-title">Vibecoders Toolkit</div>
-                    <div class="link-desc">How I shipped 3 apps — the full playbook</div>
+            <a href="https://github.com/dotsystemsdevs/vibecoders-toolkit" class="link" target="_blank" rel="noopener">
+                <span class="link-emoji">📖</span>
+                <div>
+                    <div class="link-label">Vibecoders Toolkit</div>
+                    <div class="link-sub">How I shipped 3 apps — the full playbook</div>
                 </div>
-                <div class="link-arrow">›</div>
+                <span class="link-go">›</span>
             </a>
 
-            <a href="https://github.com/dotsystemsdevs" class="link-card" target="_blank" rel="noopener">
-                <div class="link-icon">💻</div>
-                <div class="link-text">
-                    <div class="link-title">GitHub</div>
-                    <div class="link-desc">All repos and projects</div>
+            <a href="https://github.com/dotsystemsdevs" class="link" target="_blank" rel="noopener">
+                <span class="link-emoji">💻</span>
+                <div>
+                    <div class="link-label">GitHub</div>
+                    <div class="link-sub">All repos</div>
                 </div>
-                <div class="link-arrow">›</div>
-            </a>
-        </div>
-
-        <div class="section-label">Social</div>
-        <div class="links">
-            <a href="https://www.instagram.com/dotsystemsdevs/" class="link-card" target="_blank" rel="noopener">
-                <div class="link-icon">📷</div>
-                <div class="link-text">
-                    <div class="link-title">Instagram</div>
-                    <div class="link-desc">Dev journey & behind the scenes</div>
-                </div>
-                <div class="link-arrow">›</div>
+                <span class="link-go">›</span>
             </a>
         </div>
 
-        <div class="footer">
-            <a href="https://github.com/dotsystemsdevs">dotsystems</a>
-        </div>
+        <div class="footer">build · ship · share</div>
     </div>
 </body>
 </html>
