@@ -116,30 +116,6 @@
         text-decoration: underline;
         text-underline-offset: 3px;
       }
-      .cta-row {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin: 4px 0 18px;
-      }
-      .cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        border: 1px solid #394157;
-        background: var(--card);
-        color: var(--text);
-        text-decoration: none;
-        padding: 10px 14px;
-        font-size: 16px;
-        transition: transform 140ms ease, border-color 140ms ease;
-      }
-      .cta:hover { transform: translateY(-1px); border-color: #6f7ca0; }
-      .cta.primary {
-        border-color: #8bb2ff;
-        background: #152441;
-      }
       .social-row {
         margin-top: 26px;
       }
@@ -170,7 +146,6 @@
       .gh { background: #1f2937; }
       .choice:focus-visible,
       .item-link:focus-visible,
-      .cta:focus-visible,
       .social:focus-visible,
       .web-list a:focus-visible {
         outline: 2px solid #dbeafe;
@@ -188,7 +163,9 @@
         .social-row { margin-top: 22px; }
         .social-icons { margin-top: 10px; gap: 8px; }
         .avatar { width: 40px; height: 40px; margin-left: 6px; }
-        .cta { padding: 9px 12px; font-size: 14px; border-radius: 10px; }
+        .chooser { margin-bottom: 16px; }
+        .item-link { gap: 8px; }
+        .item-icon { width: 22px; height: 22px; border-radius: 6px; }
         .social { width: 40px; height: 40px; border-radius: 11px; }
         .social svg { width: 19px; height: 19px; }
       }
@@ -207,9 +184,6 @@
         or
         <button class="choice" type="button" data-platform="android">Android</button>?
       </p>
-      <div class="cta-row">
-        <a class="cta primary" id="quick-open" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">Open a featured app</a>
-      </div>
       </section>
 
       <section class="stack">
@@ -266,7 +240,6 @@
       const choices = document.querySelectorAll(".choice");
       const appNotes = document.querySelectorAll(".item[data-app]");
       const appNoteLinks = document.querySelectorAll(".app-note-link[data-ios-href][data-android-href]");
-      const quickOpen = document.getElementById("quick-open");
       const setPlatform = (platform) => {
         choices.forEach((btn) => btn.classList.toggle("active", btn.dataset.platform === platform));
         appNotes.forEach((note) => {
@@ -276,12 +249,6 @@
           const show = platform === "ios" ? showOnIos : showOnAndroid;
           note.classList.toggle("is-hidden", !show);
         });
-        if (quickOpen) {
-          quickOpen.href = platform === "android"
-            ? "https://play.google.com/store/apps/details?id=com.dotsystems.slothy"
-            : "https://apps.apple.com/app/id6760565326";
-          quickOpen.textContent = platform === "android" ? "Open Slothy on Android" : "Open Slothy on iOS";
-        }
         appNoteLinks.forEach((link) => {
           const href = platform === "android" ? link.dataset.androidHref : link.dataset.iosHref;
           if (href && href.trim() !== "") link.href = href;
