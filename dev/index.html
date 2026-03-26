@@ -67,15 +67,62 @@
       }
       .listline { margin-bottom: 10px; }
       .table {
-        margin: 12px 0 18px;
-        border: 1px solid #ced4db;
-        border-radius: 10px;
+        margin: 12px 0 20px;
+        border: 1px solid #2a2a2a;
+        border-radius: 12px;
         overflow: hidden;
+        background: #141618;
       }
       table { width: 100%; border-collapse: collapse; }
-      th, td { font-size: 16px; padding: 10px 12px; background: #f0f2f6; border-bottom: 1px solid #d8dde4; }
+      th, td {
+        font-size: 15px;
+        padding: 12px 12px;
+        background: #141618;
+        color: #f3f4f6;
+        border-bottom: 1px solid #26282b;
+        vertical-align: top;
+      }
       tr:last-child td { border-bottom: 0; }
-      th { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: #64748b; }
+      th {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: #9ca3af;
+      }
+      .item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .badge {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .badge.m { background: linear-gradient(135deg, #1d4ed8, #1e3a8a); }
+      .badge.s { background: linear-gradient(135deg, #16a34a, #14532d); }
+      .badge.bb { background: linear-gradient(135deg, #ea580c, #9a3412); }
+      .badge.b2r { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
+      .badge.ci { background: linear-gradient(135deg, #334155, #0f172a); }
+      .badge.ig { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+      .badge.gh { background: #111827; }
+      .label b { display: block; font-size: 15px; line-height: 1.1; }
+      .label span { display: block; margin-top: 3px; font-size: 12px; color: #9ca3af; }
+      .state {
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .state.live a { color: #4ade80; text-decoration: none; }
+      .state.live a:hover { text-decoration: underline; }
+      .state.testing { color: #fbbf24; }
+      .state.coming { color: #9ca3af; }
       @media (max-width: 760px) {
         .chip { font-size: 34px; }
         .chip.sm { font-size: 21px; }
@@ -109,33 +156,99 @@
         <span class="icon social">X</span><span class="icon social ig">IG</span><span class="icon social tk">TT</span><span class="icon social in">in</span>
       </div>
 
-      <div class="line">
-        <span class="chip sm">App availability</span>
-      </div>
+      <div class="line"><span class="chip sm">Products and availability</span></div>
       <section class="table">
         <table>
           <thead>
-            <tr><th>App</th><th>iOS</th><th>Android</th></tr>
+            <tr><th>Product</th><th>iOS</th><th>Android</th></tr>
           </thead>
           <tbody>
-            <tr><td>Mulligan</td><td>Coming</td><td>Live</td></tr>
-            <tr><td>Slothy</td><td>Live</td><td>Live</td></tr>
-            <tr><td>Bogey Blamer</td><td>Live</td><td>Testing</td></tr>
+            <tr>
+              <td>
+                <div class="item">
+                  <span class="badge m">M</span>
+                  <span class="label"><b>Mulligan</b><span>Golf Ball Tracker</span></span>
+                </div>
+              </td>
+              <td class="state coming">Coming</td>
+              <td class="state live"><a href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">Live</a></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">
+                  <span class="badge s">S</span>
+                  <span class="label"><b>Slothy</b><span>Task app</span></span>
+                </div>
+              </td>
+              <td class="state live"><a href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">Live</a></td>
+              <td class="state live"><a href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">Live</a></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">
+                  <span class="badge bb">BB</span>
+                  <span class="label"><b>Bogey Blamer</b><span>Golf excuses app</span></span>
+                </div>
+              </td>
+              <td class="state live"><a href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">Live</a></td>
+              <td class="state testing">Testing</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">
+                  <span class="badge b2r">R</span>
+                  <span class="label"><b>Build2Race</b><span>SaaS for race teams</span></span>
+                </div>
+              </td>
+              <td class="state coming">-</td>
+              <td class="state coming"><a class="linklike" href="https://build2race.com" target="_blank" rel="noopener">Web</a></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">
+                  <span class="badge ci">CI</span>
+                  <span class="label"><b>commitmentissues.dev</b><span>Repo death certificates</span></span>
+                </div>
+              </td>
+              <td class="state coming">-</td>
+              <td class="state coming"><a class="linklike" href="https://commitmentissues.dev" target="_blank" rel="noopener">Web</a></td>
+            </tr>
           </tbody>
         </table>
       </section>
 
-      <div class="line listline"><a class="linklike" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">Mulligan (Android): Click here.</a></div>
-      <div class="line listline"><a class="linklike" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">Slothy (Android): Click here.</a></div>
-      <div class="line listline"><a class="linklike" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">Slothy (iOS): Click here.</a></div>
-      <div class="line listline"><a class="linklike" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">Bogey Blamer (iOS): Click here.</a></div>
-      <div class="line listline"><a class="linklike" href="https://build2race.com" target="_blank" rel="noopener">Build2Race: Click here.</a></div>
-      <div class="line listline"><a class="linklike" href="https://commitmentissues.dev" target="_blank" rel="noopener">commitmentissues.dev: Click here.</a></div>
-
       <hr class="rule" />
 
-      <div class="line listline"><a class="linklike" href="https://www.instagram.com/dotsystemsdevs/#" target="_blank" rel="noopener">Instagram: Click here.</a></div>
-      <div class="line listline"><a class="linklike" href="https://github.com/dotsystemsdevs" target="_blank" rel="noopener">GitHub: Click here.</a></div>
+      <div class="line"><span class="chip sm">Social links</span></div>
+      <section class="table">
+        <table>
+          <thead>
+            <tr><th>Platform</th><th>Handle</th><th>Link</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="item">
+                  <span class="badge ig">IG</span>
+                  <span class="label"><b>Instagram</b><span>content + app updates</span></span>
+                </div>
+              </td>
+              <td>@dotsystemsdevs</td>
+              <td class="state live"><a href="https://www.instagram.com/dotsystemsdevs/#" target="_blank" rel="noopener">Open</a></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">
+                  <span class="badge gh">GH</span>
+                  <span class="label"><b>GitHub</b><span>all projects and code</span></span>
+                </div>
+              </td>
+              <td>@dotsystemsdevs</td>
+              <td class="state live"><a href="https://github.com/dotsystemsdevs" target="_blank" rel="noopener">Open</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
   </body>
 </html>
