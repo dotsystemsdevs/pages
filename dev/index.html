@@ -6,11 +6,13 @@
     <title>Dot | Links</title>
     <style>
       :root {
-        --bg: #0b0b0d;
-        --text: #f5f5f5;
-        --muted: #b3b3b8;
+        --bg: #0a0b0d;
+        --card: #11131a;
+        --text: #f5f7ff;
+        --muted: #a8adbd;
         --link: #c8dcff;
-        --line: #252529;
+        --line: #252a37;
+        --accent: #dbeafe;
       }
       * { box-sizing: border-box; }
       body {
@@ -18,59 +20,128 @@
         background: var(--bg);
         color: var(--text);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-        padding: 26px 18px 40px;
+        padding: 24px 16px 40px;
       }
       .container {
-        width: min(100%, 780px);
+        width: min(100%, 820px);
         margin: 0 auto;
       }
+      .stack { margin-bottom: 26px; }
       .line {
-        margin: 0 0 20px;
-        font-size: 34px;
-        line-height: 1.18;
+        margin: 0 0 18px;
+        font-size: 32px;
+        line-height: 1.2;
         letter-spacing: -0.02em;
         font-weight: 500;
       }
+      .subline {
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.35;
+      }
       .chooser {
-        font-size: 22px;
+        font-size: 20px;
         color: var(--muted);
       }
       .choice {
         appearance: none;
-        border: 1px solid #303038;
-        background: #13131a;
+        border: 1px solid #33384a;
+        background: #151927;
         color: #e4e4e7;
         border-radius: 999px;
-        padding: 4px 10px;
-        font-size: 18px;
+        padding: 5px 11px;
+        font-size: 16px;
         cursor: pointer;
         margin-left: 6px;
         transition: all 140ms ease;
       }
       .choice.active {
-        background: #e4e4e7;
-        color: #0b0b0d;
-        border-color: #e4e4e7;
+        background: var(--accent);
+        color: #0c1220;
+        border-color: var(--accent);
       }
       .avatar {
-        width: 52px;
-        height: 52px;
+        width: 48px;
+        height: 48px;
         border-radius: 999px;
         object-fit: cover;
         vertical-align: middle;
-        margin-left: 10px;
+        margin-left: 8px;
+      }
+      .list {
+        margin: 8px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .item {
+        margin: 0 0 10px;
+        font-size: 22px;
+        line-height: 1.3;
+      }
+      .item.is-hidden {
+        display: none;
+      }
+      .item-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+      .item-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+        object-fit: cover;
+        flex: 0 0 auto;
+      }
+      .item-name {
+        color: var(--link);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .item-desc { color: var(--muted); }
+      .item-link:hover .item-name { color: #e4efff; }
+      .item-link:hover .item-desc { color: #d0d7e9; }
+      .web-list .item {
+        color: var(--muted);
+      }
+      .web-list a {
+        color: var(--link);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .cta-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 4px 0 18px;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        border: 1px solid #394157;
+        background: var(--card);
+        color: var(--text);
+        text-decoration: none;
+        padding: 10px 14px;
+        font-size: 16px;
+        transition: transform 140ms ease, border-color 140ms ease;
+      }
+      .cta:hover { transform: translateY(-1px); border-color: #6f7ca0; }
+      .cta.primary {
+        border-color: #8bb2ff;
+        background: #152441;
       }
       .social-row {
-        margin-top: 28px;
+        margin-top: 26px;
       }
       .social-icons {
         display: inline-flex;
         gap: 10px;
-        margin-left: 0;
-        margin-top: 14px;
-      }
-      .app-note.is-hidden {
-        display: none;
+        margin-top: 12px;
       }
       .social {
         width: 52px;
@@ -92,61 +163,26 @@
       .x { background: #101010; }
       .ig { background: linear-gradient(135deg, #f59e0b, #ec4899, #6366f1); }
       .gh { background: #1f2937; }
-      a.link {
-        color: var(--link);
-        text-decoration: underline;
-        text-underline-offset: 4px;
-      }
-      .app-notes {
-        margin: 10px 0 26px;
-        display: block;
-      }
-      .app-note {
-        display: block;
-        width: 100%;
-        margin: 0 0 10px;
-        font-size: 22px;
-        line-height: 1.3;
-        max-width: 42ch;
-      }
-      .app-note-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-      }
-      .app-name {
-        color: var(--link);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-      .app-desc { color: var(--muted); }
-      .app-note-link:hover .app-name { color: #dbeafe; }
-      .app-note-link:hover .app-desc { color: #d7dce3; }
-      .app-note-icon {
-        width: 24px;
-        height: 24px;
-        border-radius: 7px;
-        object-fit: cover;
-        flex: 0 0 auto;
-      }
       .choice:focus-visible,
-      .app-note-link:focus-visible,
+      .item-link:focus-visible,
+      .cta:focus-visible,
       .social:focus-visible,
-      a.link:focus-visible {
+      .web-list a:focus-visible {
         outline: 2px solid #dbeafe;
         outline-offset: 3px;
         border-radius: 10px;
       }
       @media (max-width: 680px) {
-        body { padding: 22px 14px 34px; }
+        body { padding: 20px 14px 30px; }
         .line { font-size: 24px; line-height: 1.24; }
+        .subline { font-size: 17px; }
         .chooser { font-size: 18px; }
         .choice { font-size: 14px; padding: 3px 9px; }
-        .app-note { font-size: 18px; margin-bottom: 9px; max-width: none; }
-        .social-row { margin-top: 24px; }
-        .social-icons { margin-top: 12px; gap: 8px; }
-        .avatar { width: 40px; height: 40px; margin-left: 8px; }
+        .item { font-size: 18px; margin-bottom: 9px; }
+        .social-row { margin-top: 22px; }
+        .social-icons { margin-top: 10px; gap: 8px; }
+        .avatar { width: 40px; height: 40px; margin-left: 6px; }
+        .cta { padding: 9px 12px; font-size: 14px; border-radius: 10px; }
         .social { width: 40px; height: 40px; border-radius: 11px; }
         .social svg { width: 19px; height: 19px; }
       }
@@ -154,42 +190,55 @@
   </head>
   <body>
     <main class="container">
-      <p class="line">hello world!<img class="avatar" src="./dot-avatar.png" alt="Dot avatar" /></p>
+      <section class="stack">
+        <p class="line">hello world!<img class="avatar" src="./dot-avatar.png" alt="Dot avatar" /></p>
+        <p class="subline">I build small apps and websites that people actually use.</p>
+      </section>
 
+      <section class="stack">
       <p class="line chooser">You on
         <button class="choice active" type="button" data-platform="ios">iOS</button>
         or
         <button class="choice" type="button" data-platform="android">Android</button>?
       </p>
+      <div class="cta-row">
+        <a class="cta primary" id="quick-open" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">Open a featured app</a>
+      </div>
+      </section>
 
+      <section class="stack">
       <p class="line">I build mobile apps</p>
-      <section class="app-notes">
-        <p class="app-note" data-app="mulligan">
-          <a class="app-note-link" data-ios-href="" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">
-            <img class="app-note-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" />
-            <span class="app-name">Mulligan</span><span class="app-desc">- track lost and found golf balls offline</span>
+      <ul class="list">
+        <li class="item" data-app="mulligan">
+          <a class="item-link app-note-link" data-ios-href="" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">
+            <img class="item-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" />
+            <span class="item-name">Mulligan</span><span class="item-desc">- track lost and found golf balls offline</span>
           </a>
-        </p>
-        <p class="app-note" data-app="slothy">
-          <a class="app-note-link" data-ios-href="https://apps.apple.com/app/id6760565326" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">
-            <img class="app-note-icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" />
-            <span class="app-name">Slothy</span><span class="app-desc">- fast, minimal to-do app</span>
+        </li>
+        <li class="item" data-app="slothy">
+          <a class="item-link app-note-link" data-ios-href="https://apps.apple.com/app/id6760565326" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">
+            <img class="item-icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" />
+            <span class="item-name">Slothy</span><span class="item-desc">- fast, minimal to-do app</span>
           </a>
-        </p>
-        <p class="app-note" data-app="bogey">
-          <a class="app-note-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">
-            <img class="app-note-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" />
-            <span class="app-name">Bogey Blamer</span><span class="app-desc">- instant golf excuses, one tap copy</span>
+        </li>
+        <li class="item" data-app="bogey">
+          <a class="item-link app-note-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">
+            <img class="item-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" />
+            <span class="item-name">Bogey Blamer</span><span class="item-desc">- instant golf excuses, one tap copy</span>
           </a>
-        </p>
+        </li>
+      </ul>
       </section>
 
+      <section class="stack">
       <p class="line">I also build websites</p>
-      <section class="app-notes">
-        <p class="app-note"><a class="link" href="https://build2race.com" target="_blank" rel="noopener">Build2Race</a> - personalized triathlon plans for Ironman and 70.3</p>
-        <p class="app-note"><a class="link" href="https://commitmentissues.dev" target="_blank" rel="noopener">commitmentissues.dev</a> - fun death certificates for abandoned repos</p>
+      <ul class="list web-list">
+        <li class="item"><a href="https://build2race.com" target="_blank" rel="noopener">Build2Race</a> - personalized triathlon plans for Ironman and 70.3</li>
+        <li class="item"><a href="https://commitmentissues.dev" target="_blank" rel="noopener">commitmentissues.dev</a> - fun death certificates for abandoned repos</li>
+      </ul>
       </section>
 
+      <section class="stack">
       <p class="line social-row">If you wanna stalk me, start here
         <br />
         <span class="social-icons">
@@ -204,12 +253,14 @@
           </a>
         </span>
       </p>
+      </section>
 
     </main>
     <script>
       const choices = document.querySelectorAll(".choice");
-      const appNotes = document.querySelectorAll(".app-note[data-app]");
+      const appNotes = document.querySelectorAll(".item[data-app]");
       const appNoteLinks = document.querySelectorAll(".app-note-link[data-ios-href][data-android-href]");
+      const quickOpen = document.getElementById("quick-open");
       const setPlatform = (platform) => {
         choices.forEach((btn) => btn.classList.toggle("active", btn.dataset.platform === platform));
         appNotes.forEach((note) => {
@@ -219,6 +270,12 @@
           const show = platform === "ios" ? showOnIos : showOnAndroid;
           note.classList.toggle("is-hidden", !show);
         });
+        if (quickOpen) {
+          quickOpen.href = platform === "android"
+            ? "https://play.google.com/store/apps/details?id=com.dotsystems.slothy"
+            : "https://apps.apple.com/app/id6760565326";
+          quickOpen.textContent = platform === "android" ? "Open Slothy on Android" : "Open Slothy on iOS";
+        }
         appNoteLinks.forEach((link) => {
           const href = platform === "android" ? link.dataset.androidHref : link.dataset.iosHref;
           if (href && href.trim() !== "") link.href = href;
