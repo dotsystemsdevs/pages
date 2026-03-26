@@ -85,6 +85,10 @@
         border-radius: 14px;
       }
       .app-link:hover { opacity: 0.9; }
+      .app-link.is-hidden,
+      .app-note.is-hidden {
+        display: none;
+      }
       .social {
         width: 52px;
         height: 52px;
@@ -109,19 +113,26 @@
         text-underline-offset: 4px;
       }
       .app-notes {
-        margin: -2px 0 24px;
+        margin: 6px 0 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 12px;
       }
       .app-note {
-        margin: 0 0 8px;
+        margin: 0;
         color: var(--muted);
-        font-size: 20px;
-        line-height: 1.35;
+        font-size: 16px;
+        line-height: 1.25;
+        padding: 4px 10px;
+        border: 1px solid #2f2f35;
+        border-radius: 999px;
+        background: #121218;
       }
       @media (max-width: 680px) {
         .line { font-size: 24px; line-height: 1.22; }
         .chooser { font-size: 18px; }
         .choice { font-size: 14px; padding: 3px 9px; }
-        .app-note { font-size: 16px; }
+        .app-note { font-size: 14px; }
         .social-row { margin-top: 24px; }
         .social-icons { margin-top: 12px; gap: 8px; }
         .avatar { width: 40px; height: 40px; margin-left: 8px; }
@@ -144,15 +155,15 @@
 
       <p class="line">I build mobile apps
         <span class="icons">
-          <a class="app-link" data-ios-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /></a>
+          <a class="app-link" data-ios-href="" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /></a>
           <a class="app-link" data-ios-href="https://apps.apple.com/app/id6760565326" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" /></a>
-          <a class="app-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="https://apps.apple.com/app/id6759191239" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /></a>
+          <a class="app-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /></a>
         </span>
       </p>
       <section class="app-notes">
-        <p class="app-note"><a class="link" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">Mulligan</a> - offline golf ball tracker, built for real rounds.</p>
-        <p class="app-note"><a class="link" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">Slothy</a> - minimal to-do app that stays fast and simple.</p>
-        <p class="app-note"><a class="link" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">Bogey Blamer</a> - one-tap golf excuses when your shot goes wrong.</p>
+        <p class="app-note" data-app="mulligan">Mulligan - offline golf tracker</p>
+        <p class="app-note" data-app="slothy">Slothy - minimal todo app</p>
+        <p class="app-note" data-app="bogey">Bogey Blamer - one tap excuses</p>
       </section>
 
       <p class="line">and ship indie SaaS products</p>
@@ -182,11 +193,21 @@
     <script>
       const choices = document.querySelectorAll(".choice");
       const appLinks = document.querySelectorAll(".app-link[data-ios-href][data-android-href]");
+      const appNotes = document.querySelectorAll(".app-note[data-app]");
       const setPlatform = (platform) => {
         choices.forEach((btn) => btn.classList.toggle("active", btn.dataset.platform === platform));
         appLinks.forEach((link) => {
           const href = platform === "android" ? link.dataset.androidHref : link.dataset.iosHref;
-          if (href) link.href = href;
+          const available = Boolean(href && href.trim() !== "");
+          link.classList.toggle("is-hidden", !available);
+          if (available) link.href = href;
+        });
+        appNotes.forEach((note) => {
+          const id = note.dataset.app;
+          const showOnIos = id === "slothy" || id === "bogey";
+          const showOnAndroid = id === "mulligan" || id === "slothy";
+          const show = platform === "ios" ? showOnIos : showOnAndroid;
+          note.classList.toggle("is-hidden", !show);
         });
       };
       choices.forEach((btn) => btn.addEventListener("click", () => setPlatform(btn.dataset.platform)));
