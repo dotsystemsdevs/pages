@@ -88,10 +88,14 @@
         display: none;
       }
       .item-link {
-        display: inline-flex;
-        align-items: flex-start;
-        gap: 10px;
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        column-gap: 10px;
+        align-items: start;
         text-decoration: none;
+      }
+      .item-text {
+        min-width: 0;
       }
       .item-icon {
         width: 24px;
@@ -99,13 +103,18 @@
         border-radius: 7px;
         object-fit: cover;
         flex: 0 0 auto;
+        margin-top: 2px;
       }
       .item-name {
         color: var(--link);
         text-decoration: underline;
         text-underline-offset: 3px;
       }
-      .item-desc { color: var(--muted); }
+      .item-desc {
+        display: block;
+        color: var(--muted);
+        margin-top: 3px;
+      }
       .item-link:hover .item-name { color: #e4efff; }
       .item-link:hover .item-desc { color: #d0d7e9; }
       .web-list .item {
@@ -164,7 +173,7 @@
         .social-icons { margin-top: 10px; gap: 8px; }
         .avatar { width: 40px; height: 40px; margin-left: 6px; }
         .chooser { margin-bottom: 16px; }
-        .item-link { gap: 8px; }
+        .item-link { grid-template-columns: 22px minmax(0, 1fr); column-gap: 8px; }
         .item-icon { width: 22px; height: 22px; border-radius: 6px; }
         .social { width: 40px; height: 40px; border-radius: 11px; }
         .social svg { width: 19px; height: 19px; }
@@ -192,19 +201,19 @@
         <li class="item" data-app="mulligan">
           <a class="item-link app-note-link" data-ios-href="" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">
             <img class="item-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" />
-            <span class="item-name">Mulligan</span><span class="item-desc">- track lost and found golf balls offline</span>
+            <span class="item-text"><span class="item-name">Mulligan</span><span class="item-desc">Track lost and found golf balls offline.</span></span>
           </a>
         </li>
         <li class="item" data-app="slothy">
           <a class="item-link app-note-link" data-ios-href="https://apps.apple.com/app/id6760565326" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">
             <img class="item-icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" />
-            <span class="item-name">Slothy</span><span class="item-desc">- fast, minimal to-do app</span>
+            <span class="item-text"><span class="item-name">Slothy</span><span class="item-desc">Fast, minimal to-do app.</span></span>
           </a>
         </li>
         <li class="item" data-app="bogey">
           <a class="item-link app-note-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">
             <img class="item-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" />
-            <span class="item-name">Bogey Blamer</span><span class="item-desc">- instant golf excuses, one tap copy</span>
+            <span class="item-text"><span class="item-name">Bogey Blamer</span><span class="item-desc">Instant golf excuses with one-tap copy.</span></span>
           </a>
         </li>
       </ul>
