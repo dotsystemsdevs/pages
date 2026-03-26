@@ -20,7 +20,7 @@
         background: var(--bg);
         color: var(--text);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-        padding: 24px 16px 40px;
+        padding: 44px 16px 40px;
       }
       .container {
         width: min(100%, 820px);
@@ -33,6 +33,11 @@
         line-height: 1.2;
         letter-spacing: -0.02em;
         font-weight: 500;
+      }
+      .hero {
+        font-size: 56px;
+        line-height: 1.06;
+        margin-bottom: 16px;
       }
       .subline {
         margin: 0 0 14px;
@@ -84,7 +89,7 @@
       }
       .item-link {
         display: inline-flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 10px;
         text-decoration: none;
       }
@@ -173,8 +178,9 @@
         border-radius: 10px;
       }
       @media (max-width: 680px) {
-        body { padding: 20px 14px 30px; }
+        body { padding: 34px 14px 30px; }
         .line { font-size: 24px; line-height: 1.24; }
+        .hero { font-size: 38px; line-height: 1.08; }
         .subline { font-size: 17px; }
         .chooser { font-size: 18px; }
         .choice { font-size: 14px; padding: 3px 9px; }
@@ -191,7 +197,7 @@
   <body>
     <main class="container">
       <section class="stack">
-        <p class="line">hello world!<img class="avatar" src="./dot-avatar.png" alt="Dot avatar" /></p>
+        <p class="line hero">hello world!<img class="avatar" src="./dot-avatar.png" alt="Dot avatar" /></p>
         <p class="subline">I build small apps and websites that people actually use.</p>
       </section>
 
