@@ -18,16 +18,16 @@
         background: var(--bg);
         color: var(--text);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-        padding: 24px 16px 34px;
+        padding: 26px 18px 40px;
       }
       .container {
-        width: min(100%, 760px);
+        width: min(100%, 780px);
         margin: 0 auto;
       }
       .line {
-        margin: 0 0 18px;
-        font-size: 36px;
-        line-height: 1.16;
+        margin: 0 0 20px;
+        font-size: 34px;
+        line-height: 1.18;
         letter-spacing: -0.02em;
         font-weight: 500;
       }
@@ -45,6 +45,7 @@
         font-size: 18px;
         cursor: pointer;
         margin-left: 6px;
+        transition: all 140ms ease;
       }
       .choice.active {
         background: #e4e4e7;
@@ -61,7 +62,7 @@
       }
       .icons {
         display: inline-flex;
-        gap: 8px;
+        gap: 10px;
         margin-left: 10px;
         vertical-align: middle;
       }
@@ -83,8 +84,9 @@
       .app-link {
         display: inline-flex;
         border-radius: 14px;
+        transition: opacity 140ms ease, transform 140ms ease;
       }
-      .app-link:hover { opacity: 0.9; }
+      .app-link:hover { opacity: 0.9; transform: translateY(-1px); }
       .app-link.is-hidden,
       .app-note.is-hidden {
         display: none;
@@ -98,7 +100,9 @@
         justify-content: center;
         color: #fff;
         text-decoration: none;
+        transition: transform 140ms ease, filter 140ms ease;
       }
+      .social:hover { transform: translateY(-1px); filter: brightness(1.05); }
       .social svg {
         width: 24px;
         height: 24px;
@@ -113,7 +117,7 @@
         text-underline-offset: 4px;
       }
       .app-notes {
-        margin: 8px 0 24px;
+        margin: 10px 0 26px;
         display: block;
       }
       .app-note {
@@ -122,13 +126,23 @@
         margin: 0 0 10px;
         color: var(--muted);
         font-size: 22px;
-        line-height: 1.28;
+        line-height: 1.3;
+        max-width: 42ch;
+      }
+      .choice:focus-visible,
+      .app-link:focus-visible,
+      .social:focus-visible,
+      a.link:focus-visible {
+        outline: 2px solid #dbeafe;
+        outline-offset: 3px;
+        border-radius: 10px;
       }
       @media (max-width: 680px) {
-        .line { font-size: 24px; line-height: 1.22; }
+        body { padding: 22px 14px 34px; }
+        .line { font-size: 24px; line-height: 1.24; }
         .chooser { font-size: 18px; }
         .choice { font-size: 14px; padding: 3px 9px; }
-        .app-note { font-size: 18px; }
+        .app-note { font-size: 18px; margin-bottom: 9px; max-width: none; }
         .social-row { margin-top: 24px; }
         .social-icons { margin-top: 12px; gap: 8px; }
         .avatar { width: 40px; height: 40px; margin-left: 8px; }
@@ -204,7 +218,9 @@
         });
       };
       choices.forEach((btn) => btn.addEventListener("click", () => setPlatform(btn.dataset.platform)));
-      setPlatform("ios");
+      const ua = navigator.userAgent || "";
+      const isAndroid = /Android/i.test(ua);
+      setPlatform(isAndroid ? "android" : "ios");
     </script>
   </body>
 </html>
