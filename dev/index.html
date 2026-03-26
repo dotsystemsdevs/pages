@@ -1,170 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dotsystems</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dot | Apps and SaaS</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #0e0e0e;
-            color: #e0e0e8;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .pixel-logo {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 11px;
-            color: #3355dd;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            display: inline-block;
-            padding: 10px 16px;
-            border: 2px solid #2a2a2a;
-            background: #1a1a1a;
-            image-rendering: pixelated;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        a.link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #e0e0e8;
-            transition: border-color 0.15s, box-shadow 0.15s;
-        }
-
-        a.link:hover {
-            border-color: #3355dd;
-            box-shadow: 0 2px 8px rgba(51, 85, 221, 0.08);
-        }
-
-        .link-emoji {
-            font-size: 20px;
-            width: 32px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .link-label {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .link-sub {
-            font-size: 11px;
-            color: #666;
-            margin-top: 1px;
-        }
-
-        .link-go {
-            margin-left: auto;
-            font-size: 14px;
-            color: #444;
-        }
-
-        .divider {
-            height: 1px;
-            background: #2a2a2a;
-            margin: 16px 0;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 28px;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 7px;
-            color: #333;
-            letter-spacing: 1px;
-        }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #0e0e0e;
+        color: #f4f4f5;
+        min-height: 100vh;
+        padding: 28px 16px;
+      }
+      .wrap { width: 100%; max-width: 420px; margin: 0 auto; }
+      .head { text-align: center; margin-bottom: 20px; }
+      .title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+      .sub { margin-top: 6px; color: #9ca3af; font-size: 14px; }
+      .links { display: flex; flex-direction: column; gap: 10px; }
+      .btn {
+        display: flex; align-items: center; gap: 12px;
+        text-decoration: none; color: #f4f4f5;
+        background: #1a1a1a; border: 1px solid #2a2a2a;
+        border-radius: 12px; padding: 14px 14px;
+        transition: all .15s ease;
+      }
+      .btn:hover { border-color: #60a5fa; transform: translateY(-1px); }
+      .emoji { font-size: 20px; width: 24px; text-align: center; }
+      .txt { display: flex; flex-direction: column; }
+      .txt b { font-size: 14px; }
+      .txt span { font-size: 12px; color: #9ca3af; margin-top: 2px; }
+      .arr { margin-left: auto; color: #6b7280; }
+      .divider { height: 1px; background: #27272a; margin: 14px 0; }
+      .foot { text-align: center; margin-top: 18px; font-size: 12px; color: #6b7280; }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="pixel-logo">dotsystems</div>
-        </div>
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="head">
+        <h1 class="title">Dot</h1>
+        <p class="sub">Apps and SaaS · all links in one place</p>
+      </header>
 
-        <div class="links">
-            <a href="https://dotsystemsdevs.github.io/pages/links/" class="link" target="_blank" rel="noopener">
-                <span class="link-emoji">🦥</span>
-                <div>
-                    <div class="link-label">Slothy</div>
-                    <div class="link-sub">Todo app for procrastinators</div>
-                </div>
-                <span class="link-go">›</span>
-            </a>
+      <section class="links">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">
+          <span class="emoji">⛳</span><span class="txt"><b>Mulligan</b><span>Golf Ball Tracker (Android)</span></span><span class="arr">›</span>
+        </a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">
+          <span class="emoji">🦥</span><span class="txt"><b>Slothy (Android)</b><span>Task app</span></span><span class="arr">›</span>
+        </a>
+        <a class="btn" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">
+          <span class="emoji">🍎</span><span class="txt"><b>Slothy (iOS)</b><span>Task app</span></span><span class="arr">›</span>
+        </a>
+        <a class="btn" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">
+          <span class="emoji">🏌️</span><span class="txt"><b>Bogey Blamer</b><span>Golf excuses app (iOS)</span></span><span class="arr">›</span>
+        </a>
+        <a class="btn" href="https://build2race.com" target="_blank" rel="noopener">
+          <span class="emoji">🏎️</span><span class="txt"><b>Build2Race</b><span>SaaS for race teams</span></span><span class="arr">›</span>
+        </a>
+        <a class="btn" href="https://commitmentissues.dev" target="_blank" rel="noopener">
+          <span class="emoji">🪦</span><span class="txt"><b>commitmentissues.dev</b><span>Death certificates for abandoned repos</span></span><span class="arr">›</span>
+        </a>
+      </section>
 
-            <a href="https://dub.sh/mulligan-tree-link" class="link" target="_blank" rel="noopener">
-                <span class="link-emoji">⛳</span>
-                <div>
-                    <div class="link-label">Mulligan</div>
-                    <div class="link-sub">Golf scorecard & ball tracker</div>
-                </div>
-                <span class="link-go">›</span>
-            </a>
+      <div class="divider"></div>
 
-            <a href="https://dub.sh/lotty-treelink" class="link" target="_blank" rel="noopener">
-                <span class="link-emoji">📊</span>
-                <div>
-                    <div class="link-label">Lotty</div>
-                    <div class="link-sub">Personal finance tracker for lottery</div>
-                </div>
-                <span class="link-go">›</span>
-            </a>
-        </div>
+      <section class="links">
+        <a class="btn" href="https://www.instagram.com/dotsystemsdevs/#" target="_blank" rel="noopener">
+          <span class="emoji">📸</span><span class="txt"><b>Instagram</b><span>@dotsystemsdevs</span></span><span class="arr">›</span>
+        </a>
+        <a class="btn" href="https://github.com/dotsystemsdevs" target="_blank" rel="noopener">
+          <span class="emoji">💻</span><span class="txt"><b>GitHub</b><span>All repos</span></span><span class="arr">›</span>
+        </a>
+      </section>
 
-        <div class="divider"></div>
-
-        <div class="links">
-            <a href="https://github.com/dotsystemsdevs/vibecoders-toolkit" class="link" target="_blank" rel="noopener">
-                <span class="link-emoji">📖</span>
-                <div>
-                    <div class="link-label">Vibecoders Toolkit</div>
-                    <div class="link-sub">How I shipped 3 apps — the full playbook</div>
-                </div>
-                <span class="link-go">›</span>
-            </a>
-
-            <a href="https://github.com/dotsystemsdevs" class="link" target="_blank" rel="noopener">
-                <span class="link-emoji">💻</span>
-                <div>
-                    <div class="link-label">GitHub</div>
-                    <div class="link-sub">All repos</div>
-                </div>
-                <span class="link-go">›</span>
-            </a>
-        </div>
-
-        <div class="footer">build · ship · share</div>
-    </div>
-</body>
+      <p class="foot">Building things people actually use.</p>
+    </main>
+  </body>
 </html>
