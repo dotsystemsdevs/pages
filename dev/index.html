@@ -175,10 +175,52 @@
         font-size: 13px;
         font-weight: 700;
       }
-      .state.live a { color: #4ade80; text-decoration: none; }
-      .state.live a:hover { text-decoration: underline; }
+      .platform {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 700;
+        vertical-align: middle;
+      }
+      .platform.ios { background: #94a3b8; color: #0b1020; }
+      .platform.android { background: #22c55e; color: #052e16; }
+      .platform.web { background: #60a5fa; color: #0b2447; }
+      .status-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid #1f3f2d;
+        background: #10251a;
+        color: #4ade80;
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .status-link:hover { filter: brightness(1.08); }
       .state.testing { color: #fbbf24; }
       .state.coming { color: var(--muted); }
+      .state.na { color: #64748b; }
+      .social-icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .social-icon.x { background: #0f172a; }
+      .social-icon.ig { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+      .social-icon.gh { background: #111827; }
       @media (max-width: 760px) {
         .chip { font-size: 34px; }
         .chip.sm { font-size: 21px; }
@@ -224,7 +266,11 @@
         <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Product</th><th>iOS</th><th>Android</th></tr>
+            <tr>
+              <th>Product</th>
+              <th><span class="platform ios"></span>iOS</th>
+              <th><span class="platform android">A</span>Android</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
@@ -235,7 +281,7 @@
                 </div>
               </td>
               <td class="state coming">Coming</td>
-              <td class="state live"><a href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">Live</a></td>
+              <td class="state live"><a class="status-link" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener"><span class="platform android">A</span>Live</a></td>
             </tr>
             <tr>
               <td>
@@ -244,8 +290,8 @@
                   <span class="label"><b>Slothy</b><span>Task app</span></span>
                 </div>
               </td>
-              <td class="state live"><a href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">Live</a></td>
-              <td class="state live"><a href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">Live</a></td>
+              <td class="state live"><a class="status-link" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener"><span class="platform ios"></span>Live</a></td>
+              <td class="state live"><a class="status-link" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener"><span class="platform android">A</span>Live</a></td>
             </tr>
             <tr>
               <td>
@@ -254,7 +300,7 @@
                   <span class="label"><b>Bogey Blamer</b><span>Golf excuses app</span></span>
                 </div>
               </td>
-              <td class="state live"><a href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">Live</a></td>
+              <td class="state live"><a class="status-link" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener"><span class="platform ios"></span>Live</a></td>
               <td class="state testing">Testing</td>
             </tr>
             <tr>
@@ -264,8 +310,8 @@
                   <span class="label"><b>Build2Race</b><span>SaaS for race teams</span></span>
                 </div>
               </td>
-              <td class="state coming">-</td>
-              <td class="state coming"><a class="linklike" href="https://build2race.com" target="_blank" rel="noopener">Web</a></td>
+              <td class="state na">-</td>
+              <td class="state live"><a class="status-link" href="https://build2race.com" target="_blank" rel="noopener"><span class="platform web">W</span>Web</a></td>
             </tr>
             <tr>
               <td>
@@ -274,8 +320,8 @@
                   <span class="label"><b>commitmentissues.dev</b><span>Repo death certificates</span></span>
                 </div>
               </td>
-              <td class="state coming">-</td>
-              <td class="state coming"><a class="linklike" href="https://commitmentissues.dev" target="_blank" rel="noopener">Web</a></td>
+              <td class="state na">-</td>
+              <td class="state live"><a class="status-link" href="https://commitmentissues.dev" target="_blank" rel="noopener"><span class="platform web">W</span>Web</a></td>
             </tr>
           </tbody>
         </table>
@@ -295,32 +341,32 @@
             <tr>
               <td>
                 <div class="item">
-                  <span class="badge x">X</span>
+                  <span class="social-icon x">X</span>
                   <span class="label"><b>X</b><span>build updates + thoughts</span></span>
                 </div>
               </td>
               <td>@dotsystemsdevs</td>
-              <td class="state live"><a href="https://x.com/dotsystemsdevs" target="_blank" rel="noopener">Open</a></td>
+              <td class="state live"><a class="status-link" href="https://x.com/dotsystemsdevs" target="_blank" rel="noopener">Open</a></td>
             </tr>
             <tr>
               <td>
                 <div class="item">
-                  <span class="badge ig">IG</span>
+                  <span class="social-icon ig">IG</span>
                   <span class="label"><b>Instagram</b><span>content + app updates</span></span>
                 </div>
               </td>
               <td>@dotsystemsdevs</td>
-              <td class="state live"><a href="https://www.instagram.com/dotsystemsdevs/#" target="_blank" rel="noopener">Open</a></td>
+              <td class="state live"><a class="status-link" href="https://www.instagram.com/dotsystemsdevs/#" target="_blank" rel="noopener">Open</a></td>
             </tr>
             <tr>
               <td>
                 <div class="item">
-                  <span class="badge gh">GH</span>
+                  <span class="social-icon gh">GH</span>
                   <span class="label"><b>GitHub</b><span>all projects and code</span></span>
                 </div>
               </td>
               <td>@dotsystemsdevs</td>
-              <td class="state live"><a href="https://github.com/dotsystemsdevs" target="_blank" rel="noopener">Open</a></td>
+              <td class="state live"><a class="status-link" href="https://github.com/dotsystemsdevs" target="_blank" rel="noopener">Open</a></td>
             </tr>
           </tbody>
         </table>
