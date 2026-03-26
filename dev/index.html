@@ -99,10 +99,20 @@
         text-decoration: underline;
         text-underline-offset: 4px;
       }
+      .app-notes {
+        margin: -6px 0 16px;
+      }
+      .app-note {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.35;
+      }
       @media (max-width: 680px) {
         .line { font-size: 24px; line-height: 1.22; }
         .chooser { font-size: 18px; }
         .choice { font-size: 14px; padding: 3px 9px; }
+        .app-note { font-size: 16px; }
         .avatar { width: 40px; height: 40px; margin-left: 8px; }
         .app-icon { width: 42px; height: 42px; border-radius: 11px; }
         .social { width: 40px; height: 40px; border-radius: 11px; }
@@ -118,7 +128,7 @@
         <button class="choice active" type="button" data-platform="ios">iOS</button>
         or
         <button class="choice" type="button" data-platform="android">Android</button>
-        ? I'll open the right store links for you.
+        ? Pick one and tap any app icon.
       </p>
 
       <p class="line">I build mobile apps
@@ -128,6 +138,11 @@
           <a class="app-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="https://apps.apple.com/app/id6759191239" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /></a>
         </span>
       </p>
+      <section class="app-notes">
+        <p class="app-note"><a class="link" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">Mulligan</a> - offline golf ball tracker, built for real rounds.</p>
+        <p class="app-note"><a class="link" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">Slothy</a> - minimal to-do app that stays fast and simple.</p>
+        <p class="app-note"><a class="link" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">Bogey Blamer</a> - one-tap golf excuses when your shot goes wrong.</p>
+      </section>
 
       <p class="line">and ship indie SaaS products</p>
 
