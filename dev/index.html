@@ -10,16 +10,6 @@
       body { margin:0; font-family:"Segoe UI", Arial, sans-serif; background:var(--bg); color:var(--text); padding:14px 10px 18px; }
       .sheet { max-width:980px; margin:0 auto; }
       h2 { margin:10px 0 8px; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
-      .tabs { display:flex; gap:8px; margin: 6px 0 10px; }
-      .tab-btn {
-        border:1px solid var(--grid);
-        background: #111;
-        color: #fff;
-        padding: 7px 12px;
-        font-size: 13px;
-        cursor: pointer;
-      }
-      .tab-btn.active { background:#fff; color:#000; }
       .tbl { border:1px solid var(--grid); overflow:hidden; margin-bottom:12px; }
       table { width:100%; border-collapse:collapse; table-layout:fixed; }
       th, td { border-right:1px solid var(--grid); border-bottom:1px solid var(--grid); padding:9px 8px; font-size:13px; vertical-align:middle; }
@@ -43,7 +33,6 @@
       .status-coming { color:var(--muted); }
       .status-na { color:#8a8a8a; }
       a { color:#fff; }
-      .section { display:block; }
       @media (max-width: 430px) {
         .sub { display:none; }
         td, th { font-size:12px; padding:8px 6px; }
@@ -52,7 +41,7 @@
   </head>
   <body>
     <main class="sheet">
-      <section id="websites" class="section">
+      <section id="websites">
       <h2>Websites</h2>
       <section class="tbl">
         <table>
@@ -62,12 +51,12 @@
           <tbody>
             <tr>
               <td><div class="prod"><img class="icon" src="https://www.google.com/s2/favicons?domain=build2race.com&sz=128" alt="Build2Race icon" /><div class="name">Build2Race</div></div></td>
-              <td>Your triathlon training plan. Periodized training for Ironman and 70.3. Answer a few questions, get a structured plan. Free.</td>
+              <td>Triathlon training plans for Ironman and 70.3. Free to start.</td>
               <td><a class="status-live" href="https://build2race.com" target="_blank" rel="noopener">Get started</a></td>
             </tr>
             <tr>
               <td><div class="prod"><img class="icon" src="https://www.google.com/s2/favicons?domain=commitmentissues.dev&sz=128" alt="commitmentissues icon" /><div class="name">Commitment</div></div></td>
-              <td>Repo certs.</td>
+              <td>Death certificates for abandoned repos.</td>
               <td><a class="status-live" href="https://commitmentissues.dev" target="_blank" rel="noopener">Website</a></td>
             </tr>
           </tbody>
@@ -75,7 +64,7 @@
       </section>
       </section>
 
-      <section id="products" class="section">
+      <section id="products">
       <h2>Apps</h2>
       <section class="tbl">
         <table class="apps-table">
@@ -89,17 +78,17 @@
           </thead>
           <tbody>
             <tr>
-              <td><div class="prod"><img class="icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /><div class="name">Mulligan</div><div class="sub">Golf Ball Tracker</div></div></td>
+              <td><div class="prod"><img class="icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /><div class="name">Mulligan</div><div class="sub">Offline golf tracker</div></div></td>
               <td class="status-coming">Coming</td>
               <td><a class="status-live" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">Live</a></td>
             </tr>
             <tr>
-              <td><div class="prod"><img class="icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" /><div class="name">Slothy</div><div class="sub">Task app</div></div></td>
+              <td><div class="prod"><img class="icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" /><div class="name">Slothy</div><div class="sub">Minimal task app</div></div></td>
               <td><a class="status-live" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">Live</a></td>
               <td><a class="status-live" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">Live</a></td>
             </tr>
             <tr>
-              <td><div class="prod"><img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /><div class="name">Bogey Blamer</div><div class="sub">Golf excuses app</div></div></td>
+              <td><div class="prod"><img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /><div class="name">Bogey Blamer</div><div class="sub">Golf excuses in one tap</div></div></td>
               <td><a class="status-live" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">Live</a></td>
               <td class="status-testing">Testing</td>
             </tr>
@@ -108,7 +97,7 @@
       </section>
       </section>
 
-      <section id="social" class="section">
+      <section id="social">
       <h2>Social</h2>
       <section class="tbl">
         <table>
