@@ -25,9 +25,16 @@
       th, td { border-right:1px solid var(--grid); border-bottom:1px solid var(--grid); padding:7px 6px; font-size:12px; vertical-align:middle; }
       tr td:last-child, tr th:last-child { border-right:0; }
       th { background:var(--head); color:#d5d5d5; font-size:10px; text-transform:uppercase; letter-spacing:.05em; text-align:left; }
-      .prod { display:flex; align-items:center; gap:9px; }
+      .prod {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 4px;
+        align-items: start;
+      }
       .icon { width:18px; height:18px; border-radius:4px; object-fit:cover; border:1px solid #3c3c3c; }
-      .sub { color:var(--muted); font-size:10px; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+      .name { font-weight: 600; }
+      .sub { color:var(--muted); font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
       .status-live { color:#fff; text-decoration:underline; }
       .status-testing { color:#f5f5f5; }
       .status-coming { color:var(--muted); }
@@ -49,7 +56,7 @@
       </div>
 
       <section id="products" class="section active">
-      <h2>Products</h2>
+      <h2>Apps</h2>
       <section class="tbl">
         <table>
           <thead>
@@ -57,27 +64,38 @@
           </thead>
           <tbody>
             <tr>
-              <td><div class="prod"><img class="icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /><div><div>Mulligan</div><div class="sub">Golf Ball Tracker</div></div></div></td>
+              <td><div class="prod"><img class="icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /><div class="name">Mulligan</div><div class="sub">Golf Ball Tracker</div></div></td>
               <td class="status-coming">Coming</td>
               <td><a class="status-live" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">Live</a></td>
             </tr>
             <tr>
-              <td><div class="prod"><img class="icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" /><div><div>Slothy</div><div class="sub">Task app</div></div></div></td>
+              <td><div class="prod"><img class="icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" /><div class="name">Slothy</div><div class="sub">Task app</div></div></td>
               <td><a class="status-live" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">Live</a></td>
               <td><a class="status-live" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">Live</a></td>
             </tr>
             <tr>
-              <td><div class="prod"><img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /><div><div>Bogey Blamer</div><div class="sub">Golf excuses app</div></div></div></td>
+              <td><div class="prod"><img class="icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /><div class="name">Bogey Blamer</div><div class="sub">Golf excuses app</div></div></td>
               <td><a class="status-live" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">Live</a></td>
               <td class="status-testing">Testing</td>
             </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <h2>Web</h2>
+      <section class="tbl">
+        <table>
+          <thead>
+            <tr><th>Product</th><th>iOS</th><th>Android</th></tr>
+          </thead>
+          <tbody>
             <tr>
-              <td><div class="prod"><img class="icon" src="https://www.google.com/s2/favicons?domain=build2race.com&sz=128" alt="Build2Race icon" /><div><div>Build2Race</div><div class="sub">SaaS for race teams</div></div></div></td>
+              <td><div class="prod"><img class="icon" src="https://www.google.com/s2/favicons?domain=build2race.com&sz=128" alt="Build2Race icon" /><div class="name">Build2Race</div><div class="sub">SaaS for race teams</div></div></td>
               <td class="status-na">-</td>
               <td><a class="status-live" href="https://build2race.com" target="_blank" rel="noopener">Web</a></td>
             </tr>
             <tr>
-              <td><div class="prod"><img class="icon" src="https://www.google.com/s2/favicons?domain=commitmentissues.dev&sz=128" alt="commitmentissues icon" /><div><div>commitmentissues.dev</div><div class="sub">Repo death certificates</div></div></div></td>
+              <td><div class="prod"><img class="icon" src="https://www.google.com/s2/favicons?domain=commitmentissues.dev&sz=128" alt="commitmentissues icon" /><div class="name">commitmentissues.dev</div><div class="sub">Repo death certificates</div></div></td>
               <td class="status-na">-</td>
               <td><a class="status-live" href="https://commitmentissues.dev" target="_blank" rel="noopener">Web</a></td>
             </tr>
