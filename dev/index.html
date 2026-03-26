@@ -6,28 +6,16 @@
     <title>Dot | Bio Link</title>
     <style>
       :root {
-        --bg: #eceef1;
-        --text: #1f2937;
-        --chip-bg: #dfe3e8;
-        --chip-text: #243447;
-        --table-bg: #141618;
-        --table-border: #2a2a2a;
-        --row-border: #26282b;
-        --table-text: #f3f4f6;
-        --muted: #9ca3af;
-        --link: #2563eb;
-      }
-      body.dark {
-        --bg: #0f1217;
+        --bg: #0b0c0f;
         --text: #e5e7eb;
-        --chip-bg: #1d2633;
-        --chip-text: #dbeafe;
+        --chip-bg: #151821;
+        --chip-text: #f3f4f6;
         --table-bg: #0d1117;
-        --table-border: #253041;
-        --row-border: #1f2937;
+        --table-border: #2a2f39;
+        --row-border: #20252e;
         --table-text: #e5e7eb;
         --muted: #94a3b8;
-        --link: #60a5fa;
+        --link: #e5e7eb;
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body {
@@ -39,25 +27,6 @@
         transition: background .18s ease, color .18s ease;
       }
       .wrap { width: 100%; max-width: 760px; margin: 0 auto; }
-      .topbar {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 8px;
-      }
-      .toggle {
-        border: 1px solid #b6beca;
-        background: #f8fafc;
-        color: #0f172a;
-        border-radius: 999px;
-        padding: 6px 11px;
-        font-size: 12px;
-        cursor: pointer;
-      }
-      body.dark .toggle {
-        border-color: #334155;
-        background: #111827;
-        color: #dbeafe;
-      }
       .line { margin: 0 0 16px; }
       .chip {
         display: inline-block;
@@ -100,10 +69,7 @@
       .social.ig { background: #ec4899; }
       .social.tk { background: #111827; }
       .social.in { background: #2563eb; }
-      .linklike {
-        color: var(--link);
-        text-decoration: none;
-      }
+      .linklike { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
       .linklike:hover { text-decoration: underline; }
       .rule {
         border: 0;
@@ -194,9 +160,9 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        border: 1px solid #1f3f2d;
-        background: #10251a;
-        color: #4ade80;
+        border: 1px solid #4b5563;
+        background: #111418;
+        color: #ffffff;
         text-decoration: none;
         border-radius: 999px;
         padding: 4px 10px;
@@ -204,7 +170,7 @@
         font-weight: 700;
       }
       .status-link:hover { filter: brightness(1.08); }
-      .state.testing { color: #fbbf24; }
+      .state.testing { color: #ffffff; }
       .state.coming { color: var(--muted); }
       .state.na { color: #64748b; }
       .social-icon {
@@ -230,9 +196,6 @@
   </head>
   <body>
     <main class="wrap">
-      <div class="topbar">
-        <button id="themeToggle" class="toggle" type="button">Toggle theme</button>
-      </div>
       <div class="line">
         <span class="chip sm">Hi, my name is Dot</span><span class="icon avatar">🙂</span>
       </div>
@@ -373,16 +336,5 @@
         </div>
       </section>
     </main>
-    <script>
-      const saved = localStorage.getItem("dot-theme");
-      if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        document.body.classList.add("dark");
-      }
-      const btn = document.getElementById("themeToggle");
-      btn?.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("dot-theme", document.body.classList.contains("dark") ? "dark" : "light");
-      });
-    </script>
   </body>
 </html>
