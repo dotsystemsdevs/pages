@@ -3,123 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dot | Linktree</title>
+    <title>Dot | Bio Link</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #0e0e0e;
-        color: #f4f4f5;
+        background: #eceef1;
+        color: #1f2937;
         min-height: 100vh;
-        padding: 28px 16px;
+        padding: 34px 16px 46px;
       }
-      .wrap { width: 100%; max-width: 420px; margin: 0 auto; }
-      .head { text-align: center; margin-bottom: 20px; }
-      .title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
-      .sub { margin-top: 6px; color: #9ca3af; font-size: 14px; }
-      .links { display: flex; flex-direction: column; gap: 10px; }
-      .btn {
-        display: flex; align-items: center; gap: 12px;
-        text-decoration: none; color: #f4f4f5;
-        background: #1a1a1a; border: 1px solid #2a2a2a;
-        border-radius: 12px; padding: 14px 14px;
-        transition: all .15s ease;
+      .wrap { width: 100%; max-width: 720px; margin: 0 auto; }
+      .line { margin: 0 0 16px; }
+      .chip {
+        display: inline-block;
+        padding: 4px 7px;
+        background: #dfe3e8;
+        color: #243447;
+        font-size: 42px;
+        line-height: 1.14;
       }
-      .btn:hover { border-color: #60a5fa; transform: translateY(-1px); }
-      .emoji { font-size: 20px; width: 24px; text-align: center; }
-      .app-icons { display: flex; gap: 8px; margin: 6px 0 14px; justify-content: center; flex-wrap: wrap; }
-      .app-icon {
-        width: 36px; height: 36px; border-radius: 10px;
-        display: inline-flex; align-items: center; justify-content: center;
-        font-size: 12px; font-weight: 700; color: #fff;
-        border: 1px solid rgba(255,255,255,.15);
+      .chip.sm { font-size: 24px; }
+      .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        margin-left: 8px;
+        font-size: 18px;
+        vertical-align: middle;
       }
-      .m { background: linear-gradient(135deg, #2563eb, #1e40af); }
-      .s { background: linear-gradient(135deg, #16a34a, #166534); }
-      .b { background: linear-gradient(135deg, #ea580c, #9a3412); }
-      .r { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
-      .c { background: linear-gradient(135deg, #334155, #0f172a); }
+      .avatar { border-radius: 50%; background: #f3c7a4; font-size: 16px; }
+      .app {
+        width: 46px;
+        height: 32px;
+        border-radius: 10px;
+        margin-left: -4px;
+        border: 1px solid #cfd5dc;
+        background: #0f172a;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .app.s { background: #0f172a; }
+      .app.m { background: #5b21b6; }
+      .app.b { background: #111827; }
+      .app.w { background: #f3f4f6; color: #374151; }
+      .youtube { background: #ef4444; color: #fff; }
+      .social { background: #111827; color: #fff; }
+      .social.ig { background: #ec4899; }
+      .social.tk { background: #111827; }
+      .social.in { background: #2563eb; }
+      .linklike {
+        color: #2563eb;
+        text-decoration: none;
+      }
+      .rule {
+        border: 0;
+        border-top: 1px dashed #c6ccd4;
+        margin: 24px 0;
+      }
+      .listline { margin-bottom: 10px; }
       .table {
-        margin: 14px 0;
-        border: 1px solid #2a2a2a;
-        border-radius: 12px;
+        margin: 12px 0 18px;
+        border: 1px solid #ced4db;
+        border-radius: 10px;
         overflow: hidden;
-        background: #171717;
       }
-      table { width: 100%; border-collapse: collapse; font-size: 13px; }
-      th, td { padding: 10px 12px; border-bottom: 1px solid #2a2a2a; text-align: left; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { font-size: 16px; padding: 10px 12px; background: #f0f2f6; border-bottom: 1px solid #d8dde4; }
       tr:last-child td { border-bottom: 0; }
-      th { color: #9ca3af; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
-      .ok { color: #86efac; font-weight: 600; }
-      .soon { color: #fbbf24; font-weight: 600; }
-      .txt { display: flex; flex-direction: column; }
-      .txt b { font-size: 14px; }
-      .txt span { font-size: 12px; color: #9ca3af; margin-top: 2px; }
-      .arr { margin-left: auto; color: #6b7280; }
-      .divider { height: 1px; background: #27272a; margin: 14px 0; }
-      .foot { text-align: center; margin-top: 18px; font-size: 12px; color: #6b7280; }
+      th { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: #64748b; }
+      @media (max-width: 760px) {
+        .chip { font-size: 34px; }
+        .chip.sm { font-size: 21px; }
+      }
     </style>
   </head>
   <body>
     <main class="wrap">
-      <header class="head">
-        <h1 class="title">Dot</h1>
-        <p class="sub">Apps and SaaS · one bio link</p>
-        <div class="app-icons">
-          <span class="app-icon m">M</span>
-          <span class="app-icon s">S</span>
-          <span class="app-icon b">BB</span>
-          <span class="app-icon r">B2R</span>
-          <span class="app-icon c">CI</span>
-        </div>
-      </header>
+      <div class="line">
+        <span class="chip sm">Hi, my name is Dot</span><span class="icon avatar">🙂</span>
+      </div>
 
+      <div class="line">
+        <span class="chip sm">I build apps and SaaS</span>
+        <span class="icon app s">S</span><span class="icon app m">M</span><span class="icon app b">BB</span><span class="icon app w">B2R</span>
+      </div>
+
+      <div class="line">
+        <span class="chip sm">and share what I build</span><span class="icon youtube">▶</span>
+      </div>
+
+      <div class="line">
+        <span class="chip sm">I run Dot Systems</span>
+      </div>
+      <div class="line">
+        <span class="chip sm">All my apps are free to try.</span>
+      </div>
+
+      <div class="line">
+        <span class="chip sm">I post regularly on these platforms</span>
+        <span class="icon social">X</span><span class="icon social ig">IG</span><span class="icon social tk">TT</span><span class="icon social in">in</span>
+      </div>
+
+      <div class="line">
+        <span class="chip sm">App availability</span>
+      </div>
       <section class="table">
         <table>
           <thead>
             <tr><th>App</th><th>iOS</th><th>Android</th></tr>
           </thead>
           <tbody>
-            <tr><td>Mulligan</td><td>Coming</td><td class="ok">Live</td></tr>
-            <tr><td>Slothy</td><td class="ok">Live</td><td class="ok">Live</td></tr>
-            <tr><td>Bogey Blamer</td><td class="ok">Live</td><td class="soon">Testing</td></tr>
+            <tr><td>Mulligan</td><td>Coming</td><td>Live</td></tr>
+            <tr><td>Slothy</td><td>Live</td><td>Live</td></tr>
+            <tr><td>Bogey Blamer</td><td>Live</td><td>Testing</td></tr>
           </tbody>
         </table>
       </section>
 
-      <section class="links">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">
-          <span class="emoji">⛳</span><span class="txt"><b>Mulligan</b><span>Golf Ball Tracker (Android)</span></span><span class="arr">›</span>
-        </a>
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">
-          <span class="emoji">🦥</span><span class="txt"><b>Slothy (Android)</b><span>Task app</span></span><span class="arr">›</span>
-        </a>
-        <a class="btn" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">
-          <span class="emoji">🍎</span><span class="txt"><b>Slothy (iOS)</b><span>Task app</span></span><span class="arr">›</span>
-        </a>
-        <a class="btn" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">
-          <span class="emoji">🏌️</span><span class="txt"><b>Bogey Blamer</b><span>Golf excuses app (iOS)</span></span><span class="arr">›</span>
-        </a>
-        <a class="btn" href="https://build2race.com" target="_blank" rel="noopener">
-          <span class="emoji">🏎️</span><span class="txt"><b>Build2Race</b><span>SaaS for race teams</span></span><span class="arr">›</span>
-        </a>
-        <a class="btn" href="https://commitmentissues.dev" target="_blank" rel="noopener">
-          <span class="emoji">🪦</span><span class="txt"><b>commitmentissues.dev</b><span>Death certificates for abandoned repos</span></span><span class="arr">›</span>
-        </a>
-      </section>
+      <div class="line listline"><a class="linklike" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">Mulligan (Android): Click here.</a></div>
+      <div class="line listline"><a class="linklike" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener">Slothy (Android): Click here.</a></div>
+      <div class="line listline"><a class="linklike" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">Slothy (iOS): Click here.</a></div>
+      <div class="line listline"><a class="linklike" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">Bogey Blamer (iOS): Click here.</a></div>
+      <div class="line listline"><a class="linklike" href="https://build2race.com" target="_blank" rel="noopener">Build2Race: Click here.</a></div>
+      <div class="line listline"><a class="linklike" href="https://commitmentissues.dev" target="_blank" rel="noopener">commitmentissues.dev: Click here.</a></div>
 
-      <div class="divider"></div>
+      <hr class="rule" />
 
-      <section class="links">
-        <a class="btn" href="https://www.instagram.com/dotsystemsdevs/#" target="_blank" rel="noopener">
-          <span class="emoji">📸</span><span class="txt"><b>Instagram</b><span>@dotsystemsdevs</span></span><span class="arr">›</span>
-        </a>
-        <a class="btn" href="https://github.com/dotsystemsdevs" target="_blank" rel="noopener">
-          <span class="emoji">💻</span><span class="txt"><b>GitHub</b><span>All repos</span></span><span class="arr">›</span>
-        </a>
-      </section>
-
-      <p class="foot">Building things people actually use.</p>
+      <div class="line listline"><a class="linklike" href="https://www.instagram.com/dotsystemsdevs/#" target="_blank" rel="noopener">Instagram: Click here.</a></div>
+      <div class="line listline"><a class="linklike" href="https://github.com/dotsystemsdevs" target="_blank" rel="noopener">GitHub: Click here.</a></div>
     </main>
   </body>
 </html>
