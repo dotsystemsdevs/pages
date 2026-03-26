@@ -60,12 +60,6 @@
         vertical-align: middle;
         margin-left: 10px;
       }
-      .icons {
-        display: inline-flex;
-        gap: 10px;
-        margin-left: 10px;
-        vertical-align: middle;
-      }
       .social-row {
         margin-top: 28px;
       }
@@ -75,19 +69,6 @@
         margin-left: 0;
         margin-top: 14px;
       }
-      .app-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 14px;
-        object-fit: cover;
-      }
-      .app-link {
-        display: inline-flex;
-        border-radius: 14px;
-        transition: opacity 140ms ease, transform 140ms ease;
-      }
-      .app-link:hover { opacity: 0.9; transform: translateY(-1px); }
-      .app-link.is-hidden,
       .app-note.is-hidden {
         display: none;
       }
@@ -132,10 +113,16 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        color: var(--muted);
         text-decoration: none;
       }
-      .app-note-link:hover { color: #d7dce3; text-decoration: underline; text-underline-offset: 3px; }
+      .app-name {
+        color: var(--link);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .app-desc { color: var(--muted); }
+      .app-note-link:hover .app-name { color: #dbeafe; }
+      .app-note-link:hover .app-desc { color: #d7dce3; }
       .app-note-icon {
         width: 24px;
         height: 24px;
@@ -144,7 +131,7 @@
         flex: 0 0 auto;
       }
       .choice:focus-visible,
-      .app-link:focus-visible,
+      .app-note-link:focus-visible,
       .social:focus-visible,
       a.link:focus-visible {
         outline: 2px solid #dbeafe;
@@ -160,7 +147,6 @@
         .social-row { margin-top: 24px; }
         .social-icons { margin-top: 12px; gap: 8px; }
         .avatar { width: 40px; height: 40px; margin-left: 8px; }
-        .app-icon { width: 42px; height: 42px; border-radius: 11px; }
         .social { width: 40px; height: 40px; border-radius: 11px; }
         .social svg { width: 19px; height: 19px; }
       }
@@ -176,30 +162,24 @@
         <button class="choice" type="button" data-platform="android">Android</button>?
       </p>
 
-      <p class="line">I build mobile apps
-        <span class="icons">
-          <a class="app-link" data-ios-href="" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /></a>
-          <a class="app-link" data-ios-href="https://apps.apple.com/app/id6760565326" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" /></a>
-          <a class="app-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /></a>
-        </span>
-      </p>
+      <p class="line">I build mobile apps</p>
       <section class="app-notes">
         <p class="app-note" data-app="mulligan">
           <a class="app-note-link" data-ios-href="" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">
             <img class="app-note-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" />
-            <span>Mulligan - track lost and found golf balls offline</span>
+            <span class="app-name">Mulligan</span><span class="app-desc">- track lost and found golf balls offline</span>
           </a>
         </p>
         <p class="app-note" data-app="slothy">
           <a class="app-note-link" data-ios-href="https://apps.apple.com/app/id6760565326" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener">
             <img class="app-note-icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" />
-            <span>Slothy - fast, minimal to-do app</span>
+            <span class="app-name">Slothy</span><span class="app-desc">- fast, minimal to-do app</span>
           </a>
         </p>
         <p class="app-note" data-app="bogey">
           <a class="app-note-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener">
             <img class="app-note-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" />
-            <span>Bogey Blamer - instant golf excuses, one tap copy</span>
+            <span class="app-name">Bogey Blamer</span><span class="app-desc">- instant golf excuses, one tap copy</span>
           </a>
         </p>
       </section>
@@ -228,17 +208,10 @@
     </main>
     <script>
       const choices = document.querySelectorAll(".choice");
-      const appLinks = document.querySelectorAll(".app-link[data-ios-href][data-android-href]");
       const appNotes = document.querySelectorAll(".app-note[data-app]");
       const appNoteLinks = document.querySelectorAll(".app-note-link[data-ios-href][data-android-href]");
       const setPlatform = (platform) => {
         choices.forEach((btn) => btn.classList.toggle("active", btn.dataset.platform === platform));
-        appLinks.forEach((link) => {
-          const href = platform === "android" ? link.dataset.androidHref : link.dataset.iosHref;
-          const available = Boolean(href && href.trim() !== "");
-          link.classList.toggle("is-hidden", !available);
-          if (available) link.href = href;
-        });
         appNotes.forEach((note) => {
           const id = note.dataset.app;
           const showOnIos = id === "slothy" || id === "bogey";
