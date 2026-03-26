@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dot | Apps and SaaS</title>
+    <title>Dot | Linktree</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body {
@@ -27,6 +27,31 @@
       }
       .btn:hover { border-color: #60a5fa; transform: translateY(-1px); }
       .emoji { font-size: 20px; width: 24px; text-align: center; }
+      .app-icons { display: flex; gap: 8px; margin: 6px 0 14px; justify-content: center; flex-wrap: wrap; }
+      .app-icon {
+        width: 36px; height: 36px; border-radius: 10px;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 12px; font-weight: 700; color: #fff;
+        border: 1px solid rgba(255,255,255,.15);
+      }
+      .m { background: linear-gradient(135deg, #2563eb, #1e40af); }
+      .s { background: linear-gradient(135deg, #16a34a, #166534); }
+      .b { background: linear-gradient(135deg, #ea580c, #9a3412); }
+      .r { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
+      .c { background: linear-gradient(135deg, #334155, #0f172a); }
+      .table {
+        margin: 14px 0;
+        border: 1px solid #2a2a2a;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #171717;
+      }
+      table { width: 100%; border-collapse: collapse; font-size: 13px; }
+      th, td { padding: 10px 12px; border-bottom: 1px solid #2a2a2a; text-align: left; }
+      tr:last-child td { border-bottom: 0; }
+      th { color: #9ca3af; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+      .ok { color: #86efac; font-weight: 600; }
+      .soon { color: #fbbf24; font-weight: 600; }
       .txt { display: flex; flex-direction: column; }
       .txt b { font-size: 14px; }
       .txt span { font-size: 12px; color: #9ca3af; margin-top: 2px; }
@@ -39,8 +64,28 @@
     <main class="wrap">
       <header class="head">
         <h1 class="title">Dot</h1>
-        <p class="sub">Apps and SaaS · all links in one place</p>
+        <p class="sub">Apps and SaaS · one bio link</p>
+        <div class="app-icons">
+          <span class="app-icon m">M</span>
+          <span class="app-icon s">S</span>
+          <span class="app-icon b">BB</span>
+          <span class="app-icon r">B2R</span>
+          <span class="app-icon c">CI</span>
+        </div>
       </header>
+
+      <section class="table">
+        <table>
+          <thead>
+            <tr><th>App</th><th>iOS</th><th>Android</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mulligan</td><td>Coming</td><td class="ok">Live</td></tr>
+            <tr><td>Slothy</td><td class="ok">Live</td><td class="ok">Live</td></tr>
+            <tr><td>Bogey Blamer</td><td class="ok">Live</td><td class="soon">Testing</td></tr>
+          </tbody>
+        </table>
+      </section>
 
       <section class="links">
         <a class="btn" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener">
