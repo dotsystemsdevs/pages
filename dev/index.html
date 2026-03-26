@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dot | Data Sheet</title>
     <style>
-      :root { --bg:#0a0a0a; --grid:#2b2b2b; --head:#111; --text:#f5f5f5; --muted:#bdbdbd; }
+      :root { --bg:#0a0a0a; --grid:#2b2b2b; --head:#111; --text:#f5f5f5; --muted:#bdbdbd; --row:#0d0d0d; --row-alt:#111214; }
       * { box-sizing: border-box; }
       body { margin:0; font-family:"Segoe UI", Arial, sans-serif; background:var(--bg); color:var(--text); padding:14px 10px 18px; }
       .sheet { max-width:980px; margin:0 auto; }
       h2 { margin:10px 0 8px; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
-      .tbl { border:1px solid var(--grid); overflow:hidden; margin-bottom:12px; }
+      .tbl { border:1px solid var(--grid); overflow:hidden; margin-bottom:14px; border-radius:6px; }
       table { width:100%; border-collapse:collapse; table-layout:fixed; }
-      th, td { border-right:1px solid var(--grid); border-bottom:1px solid var(--grid); padding:9px 8px; font-size:13px; vertical-align:middle; }
+      th, td { border-right:1px solid var(--grid); border-bottom:1px solid var(--grid); padding:10px 9px; font-size:13px; vertical-align:middle; }
       tr td:last-child, tr th:last-child { border-right:0; }
-      th { background:var(--head); color:#d5d5d5; font-size:11px; text-transform:uppercase; letter-spacing:.05em; text-align:left; }
+      th { background:var(--head); color:#d5d5d5; font-size:11px; text-transform:uppercase; letter-spacing:.05em; text-align:left; position: sticky; top: 0; z-index: 1; }
+      tbody tr:nth-child(odd) td { background: var(--row); }
+      tbody tr:nth-child(even) td { background: var(--row-alt); }
+      tbody tr:hover td { background: #15181d; }
       .prod {
         display: grid;
         grid-template-columns: 1fr;
@@ -28,7 +31,18 @@
       .apps-table col.product-col { width: 62%; }
       .apps-table col.ios-col { width: 19%; }
       .apps-table col.android-col { width: 19%; }
-      .status-live { color:#fff; text-decoration:underline; }
+      .status-live {
+        color:#fff;
+        text-decoration:none;
+        border:1px solid #3b3f45;
+        background:#14161a;
+        border-radius:4px;
+        padding:3px 8px;
+        display:inline-block;
+        min-width:56px;
+        text-align:center;
+      }
+      .status-live:hover { border-color:#7a818c; }
       .status-testing { color:#f5f5f5; }
       .status-coming { color:var(--muted); }
       .status-na { color:#8a8a8a; }
@@ -36,6 +50,7 @@
       @media (max-width: 430px) {
         .sub { display:none; }
         td, th { font-size:12px; padding:8px 6px; }
+        .status-live { min-width:52px; padding:2px 6px; }
       }
     </style>
   </head>
