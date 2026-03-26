@@ -32,9 +32,12 @@
         gap: 4px;
         align-items: start;
       }
-      .icon { width:18px; height:18px; border-radius:4px; object-fit:cover; border:1px solid #3c3c3c; }
+      .icon { width:26px; height:26px; border-radius:6px; object-fit:cover; border:1px solid #3c3c3c; }
       .name { font-weight: 600; }
       .sub { color:var(--muted); font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+      .apps-table col.product-col { width: 62%; }
+      .apps-table col.ios-col { width: 19%; }
+      .apps-table col.android-col { width: 19%; }
       .status-live { color:#fff; text-decoration:underline; }
       .status-testing { color:#f5f5f5; }
       .status-coming { color:var(--muted); }
@@ -59,7 +62,12 @@
       <section id="products" class="section active">
       <h2>Apps</h2>
       <section class="tbl">
-        <table>
+        <table class="apps-table">
+          <colgroup>
+            <col class="product-col" />
+            <col class="ios-col" />
+            <col class="android-col" />
+          </colgroup>
           <thead>
             <tr><th>Product</th><th>iOS</th><th>Android</th></tr>
           </thead>
