@@ -31,6 +31,26 @@
         letter-spacing: -0.02em;
         font-weight: 500;
       }
+      .chooser {
+        font-size: 22px;
+        color: var(--muted);
+      }
+      .choice {
+        appearance: none;
+        border: 1px solid #303038;
+        background: #13131a;
+        color: #e4e4e7;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-left: 6px;
+      }
+      .choice.active {
+        background: #e4e4e7;
+        color: #0b0b0d;
+        border-color: #e4e4e7;
+      }
       .avatar {
         width: 52px;
         height: 52px;
@@ -79,6 +99,8 @@
       }
       @media (max-width: 680px) {
         .line { font-size: 24px; line-height: 1.22; }
+        .chooser { font-size: 18px; }
+        .choice { font-size: 14px; padding: 3px 9px; }
         .avatar { width: 40px; height: 40px; margin-left: 8px; }
         .app-icon { width: 42px; height: 42px; border-radius: 11px; }
         .social { width: 40px; height: 40px; border-radius: 11px; font-size: 17px; }
@@ -89,11 +111,18 @@
     <main class="container">
       <p class="line">Hi, my name is Dot<img class="avatar" src="https://www.google.com/s2/favicons?domain=github.com&sz=128" alt="Dot avatar" /></p>
 
+      <p class="line chooser">You on
+        <button class="choice active" type="button" data-platform="ios">iOS</button>
+        or
+        <button class="choice" type="button" data-platform="android">Android</button>
+        ? I'll open the right store links for you.
+      </p>
+
       <p class="line">I build mobile apps
         <span class="icons">
-          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /></a>
-          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" /></a>
-          <a class="app-link" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /></a>
+          <a class="app-link" data-ios-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" href="https://play.google.com/store/apps/details?id=com.dotsystemsdevs.mulligan" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/90HZ8Qd30HWYO9kqhhZ7oj5e-XZ0iF1Nm3s21fQZV5GtHkklBsYQOk3rdzN2HWjOBR2-HSihb5ce3rGuCUDwebw" alt="Mulligan icon" /></a>
+          <a class="app-link" data-ios-href="https://apps.apple.com/app/id6760565326" data-android-href="https://play.google.com/store/apps/details?id=com.dotsystems.slothy" href="https://apps.apple.com/app/id6760565326" target="_blank" rel="noopener"><img class="app-icon" src="https://play-lh.googleusercontent.com/qffjij_L_BXMw2F_fHw4tkwnc3rz4CYQKxPZ6jzzAOnlmdVAYUA6n3gGMSmxSNr_0VAIcwMp8opSz6FH9OA7KE0" alt="Slothy icon" /></a>
+          <a class="app-link" data-ios-href="https://apps.apple.com/app/id6759191239" data-android-href="https://apps.apple.com/app/id6759191239" href="https://apps.apple.com/app/id6759191239" target="_blank" rel="noopener"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d9/6b/eed96b3a-24f7-cba9-1298-69cf35671a85/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Bogey Blamer icon" /></a>
         </span>
       </p>
 
@@ -115,6 +144,19 @@
       </p>
 
     </main>
+    <script>
+      const choices = document.querySelectorAll(".choice");
+      const appLinks = document.querySelectorAll(".app-link[data-ios-href][data-android-href]");
+      const setPlatform = (platform) => {
+        choices.forEach((btn) => btn.classList.toggle("active", btn.dataset.platform === platform));
+        appLinks.forEach((link) => {
+          const href = platform === "android" ? link.dataset.androidHref : link.dataset.iosHref;
+          if (href) link.href = href;
+        });
+      };
+      choices.forEach((btn) => btn.addEventListener("click", () => setPlatform(btn.dataset.platform)));
+      setPlatform("ios");
+    </script>
   </body>
 </html>
 
